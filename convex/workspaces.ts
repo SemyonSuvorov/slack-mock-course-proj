@@ -41,7 +41,6 @@ export const newJoinCode = mutation({
         await ctx.db.patch(args.workspaceId, {
             joinCode,
         });
-
         return args.workspaceId;
     ;}
 });
