@@ -5,7 +5,7 @@ import {  Id } from "../../../../convex/_generated/dataModel";
 import { useMemo } from "react";
 
 
-type RequestType = { name: string };
+type RequestType = { id: Id<"workspaces">, name: string };
 type ResponseType = Id<"workspaces"> | null;
 
 type Options = {
@@ -15,8 +15,8 @@ type Options = {
     throwError?: boolean;
 };
 
-export const useCreateWorkspace = () => {
-    const mutation = useMutation(api.workspaces.create);
+export const useUpdateWorkspace = () => {
+    const mutation = useMutation(api.workspaces.update);
 
     const [status, setStatus] = useState<"success" | "error" | "settled" | "pending" | null>(null);
 
