@@ -130,10 +130,10 @@ export const remove = mutation({
     },
     handler: async (ctx, args) => {
         const userId = await auth.getUserId(ctx);
-        if(!userId) throw new Error("Channel not found");  
+        if(!userId) throw new Error("Unauthorized");  
 
         const channel = await ctx.db.get(args.id);
-        if(!channel) throw new Error("Unauthorized");  
+        if(!channel) throw new Error("Channel not found");  
 
         const member = await ctx.db
             .query("members")
